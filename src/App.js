@@ -1,53 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
 import SplashScreen from './components/SplashScreen';
-import React,{useEffect} from 'react'
-import { useState } from 'react'
-import { RingLoader } from 'react-spinners';
-import './custom/Custom.css'
+import { useAuth, UserButton } from "@clerk/clerk-react";
+import { useUser } from "@clerk/clerk-react";
+import Header from './components/Header';
+import Banner from './components/Banner';
+import Nav from './components/Nav';
+import About from './components/About';
+import Services from './components/Services';
+import Work from './components/Work';
+import Contact from './components/Contact';
+import Decision from './components/Decision';
+
+
+
 function App() {
   const [loading, setLoading] = useState(false);
-    
-    useEffect(() => {
-        setLoading(true);
-        setTimeout(()=>{
-            setLoading(false);
-        }, 8000)
-    },[])
+  const { isLoaded: authLoaded, userId, sessionId } = useAuth();
+  const { isLoaded: userLoaded, isSignedIn, user } = useUser();
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
   return (
     <div className="App">
-     
-      
-      {
-           loading? (
+      {loading ? (
+        <header className='splashScreen'>
+          <SplashScreen />
+        </header>
+      ) : (
+        <header className='App-header'>
+
+        {/*Show sign-in button if user is not signed in */}
+
+        
+          {!isSignedIn &&(
+            <Decision/>
+          )}
+        
+
+        {authLoaded && userLoaded && isSignedIn && (
+            <div className='bg-black bg-no-repeat bg-cover overflow-hidden'>
+            <Header/>
+            <Banner/>
+            <Nav/>
+            <About/>
+            <Services/>
             
+            <Work/>
+            <Contact/>
+            <div className='h-[4000px]'></div>
+            </div>
+          )}
 
-            <header className='splashScreen'>
-
-            <SplashScreen/>
-
-            </header>
-
-
-           ) : (
-            <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-           )
-            
-        }
-            
+          
+        </header>
+        
+      )}
     </div>
   );
 }

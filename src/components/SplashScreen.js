@@ -11,10 +11,10 @@ const SplashScreen = () => {
   return (
     //<div>SplashScreen</div>
     <div>
-         <RingLoader size={60} color='white' />
+         <RingLoader size={100} color='white' />
          <div className='teamSignaturetext'>
 
-          <h3>Web Wizards</h3>
+          <h3>Web Wizards&#174;</h3>
 
          </div>
     </div>
