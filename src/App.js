@@ -5,12 +5,12 @@ import { useUser } from "@clerk/clerk-react";
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Nav from './components/Nav';
-import About from './components/About';
 import Services from './components/Services';
 import Work from './components/Work';
 import Contact from './components/Contact';
 import Decision from './components/Decision';
-
+import LeoneCharta from './components/LeoneCharta'
+import Guidelines from './components/Guidelines';
 
 
 function App() {
@@ -47,9 +47,9 @@ function App() {
             <Header/>
             <Banner/>
             <Nav/>
-            <About/>
+            <Guidelines/>
+            <LeoneCharta/>
             <Services/>
-            
             <Work/>
             <Contact/>
             <div className='h-[4000px]'></div>

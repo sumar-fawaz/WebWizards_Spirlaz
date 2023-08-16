@@ -4,6 +4,7 @@ import {BiHomeAlt, BiUser,BiLock} from 'react-icons/bi';
 import {BsclipboardData, BsBriefcase, BsChatSquare, BsClipboard, BsChatSquareText} from 'react-icons/bs'
 import { Link } from 'react-scroll';
 import { AiOutlineLock } from 'react-icons/ai'; // Import the padlock icon
+import { FaBook,FaUserLock,FaRocket,FaBitcoin,FaPassport } from 'react-icons/fa';
 
 
 
@@ -16,17 +17,17 @@ const Nav = () => {
               
               <BiHomeAlt/>
           </Link>
-          <Link activeClass='active' smooth={true} spy={true} to='about' className='cursor-pointer w-[60px] h-[60px] flex items-center justify-center'>
-              <AiOutlineLock/>
+          <Link activeClass='active' smooth={true} spy={true} to='guidelines' className='cursor-pointer w-[60px] h-[60px] flex items-center justify-center'>
+              <FaBook/>
           </Link>
-          <Link activeClass='active' smooth={true} spy={true} to='services' className='cursor-pointer w-[60px] h-[60px] flex items-center justify-center'>
-              <BsClipboard/>
+          <Link activeClass='active' smooth={true} spy={true} to='leonecharta' className='cursor-pointer w-[60px] h-[60px] flex items-center justify-center'>
+              <FaUserLock/>
           </Link>
           <Link activeClass='active' smooth={true} spy={true} to='work' className='cursor-pointer w-[60px] h-[60px] flex items-center justify-center'>
-              <BsBriefcase/>
+              <FaRocket/>
           </Link>
           <Link activeClass='active' smooth={true} spy={true} to='contact' className='cursor-pointer w-[60px] h-[60px] flex items-center justify-center'>
-              <BsChatSquareText/>
+              <FaPassport/>
           </Link>
         </div>
       </div>

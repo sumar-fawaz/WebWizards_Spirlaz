@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 
+
+
 .btn {
   background: linear-gradient(
     92.23deg,
@@ -12,6 +14,8 @@
     #406aff 117.04%
   );
   box-shadow: 0px 4.42184px 107.23px rgba(255, 86, 246, 0.51);
+  font-family: 'Bruno Ace', cursive;
+  ;
 }
 
 .btn:hover {

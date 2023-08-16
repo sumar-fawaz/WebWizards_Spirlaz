@@ -1,7 +1,7 @@
-import React from 'react';
-import { useUser, UserButton } from "@clerk/clerk-react"; // Import UserButton from clerk-react
-import Logo from '../assets/Our Logo.png';
-
+import React from "react";
+import { useUser, UserButton } from "@clerk/clerk-react";
+import Logo from "./atoms/Logo";
+import ButtonRounded from './atoms/ButtonRounded'
 const Header = () => {
   const { isLoaded: userLoaded, isSignedIn, user } = useUser(); // Use the useUser hook
 
@@ -11,9 +11,9 @@ const Header = () => {
         <div className='flex justify-between items-center'>
            {/* Render UserButton when user is signed in */}
           <a href='#'>
-            <img src={Logo} alt='Logo' />
+            <Logo/>
           </a>
-          {isSignedIn ? <button className='btn btn-sm'><UserButton/></button>  : <button className='btn btn-sm'>Service</button>} {/* Hide "Service" button when user is signed in */}
+          {isSignedIn ? <ButtonRounded text={<UserButton/>}/>  : <ButtonRounded text={'Services'}/> }
         </div>
       </div>
     </header>
