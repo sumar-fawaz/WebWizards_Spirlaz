@@ -18,9 +18,6 @@ const CustomSelect = ({ label, value, onChange, options }) => {
         id='demo-simple-select'
         value={value}
         onChange={onChange}
-        IconProps={{
-          style: { color: '#3bace2' }, // Set icon color explicitly
-        }}
         sx={{
           border: '1px solid #b936ee',
           color: '#3bace2', // Change text color

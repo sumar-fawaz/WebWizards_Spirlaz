@@ -1,10 +1,12 @@
 import React from 'react';
 import { ThemeProvider } from '@mui/material/styles';
-import theme from '../atoms/createCustomTheme'; // Adjust the import path
+import createCustomTheme from '../atoms/createCustomTheme'; // Adjust the import path
 
 import LongTextInput from '../atoms/LongTextInput';
 import TextInput from '../atoms/TextInput';
 import ButtonSquared from '../atoms/ButtonSquared';
+
+const OuterTheme = createCustomTheme();
 
 const MedicalForm = () => {
   return (
@@ -17,8 +19,9 @@ const MedicalForm = () => {
         </div>
 
         <div className='justify-center mb-2'>
-          <ThemeProvider theme={theme}>
-            <form className='gap-y-2'>
+          <ThemeProvider theme={OuterTheme}>
+            {
+              <form className='gap-y-2'>
               <LongTextInput placeholder={'Any Pre-existing Medical Conditions'} />
               <br />
               <br />
@@ -32,6 +35,8 @@ const MedicalForm = () => {
               <br />
               <br />
             </form>
+            }
+            
           </ThemeProvider>
           <div className='bottom-4 lg:bottom-8 text-center'>
             <ButtonSquared text={'NEXT'} />

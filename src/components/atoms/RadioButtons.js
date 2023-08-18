@@ -1,12 +1,21 @@
 import React from 'react';
-import { FormControl, RadioGroup, FormControlLabel, Radio } from '@mui/material';
+import { FormControl, RadioGroup, FormControlLabel, Radio, ThemeProvider } from '@mui/material';
+import createCustomTheme from '../atoms/createCustomTheme';
+import { useFormikContext } from 'formik'; // Import useFormikContext
 
-const RadioButtons = () => (
-  <FormControl>
+const RadioButtons = ({name,value,onChange,onBlur}) => {
+  
+  
+  return(
+<ThemeProvider theme={createCustomTheme}>
+<FormControl>
     <RadioGroup
       row
       aria-labelledby="demo-row-radio-buttons-group-label"
-      name="row-radio-buttons-group"
+      name={name}
+      value={value} // Set the selected value from Formik
+      onChange={onChange}
+      onBlur={onBlur}
     >
       <FormControlLabel
         sx={{
@@ -17,7 +26,7 @@ const RadioButtons = () => (
             color: 'primary',
           },
         }}
-        value="female"
+        value="male"
         control={<Radio />}
         label="Male"
       />
@@ -30,7 +39,7 @@ const RadioButtons = () => (
             color: 'primary',
           },
         }}
-        value="male"
+        value="female"
         control={<Radio />}
         label="Female"
       />
@@ -49,6 +58,10 @@ const RadioButtons = () => (
       />
     </RadioGroup>
   </FormControl>
-);
+  </ThemeProvider>
+  );
+  
+  
+}
 
 export default RadioButtons;

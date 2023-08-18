@@ -23,24 +23,11 @@ const createCustomTheme = () => {
       success: {
         main: '#034008',
       },
-      components: {
-        // Name of the component
-        DatePicker: {
-          styleOverrides: {
-            // Name of the slot
-            root: {
-              // Some CSS
-              backgroundColor: 'white',
-              // add variant styles like so
-              '&.Mui-disabled': {
-                backgroundColor: '#cccccc',
-              },
-            },
-          },
-        },
-      },
+     
     },
   });
+
+  
 
   return theme;
 };

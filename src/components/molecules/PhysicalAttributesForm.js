@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import CustomSelect from '../atoms/CustomSelect'; // Update the import path
 import ButtonSquared from '../atoms/ButtonSquared'; // Update the import path
 import { ThemeProvider } from '@mui/material/styles'; // Import ThemeProvider from MUI
-import theme from '../atoms/createCustomTheme'; // Import your theme
+import createCustomTheme from '../atoms/createCustomTheme'; // Import your theme
 
+const OuterTheme = createCustomTheme();
 const PhysicalAttributesForm = () => {
     const heightOptions = [
         { value: 0, label: 'Height (Ft)' },
@@ -52,8 +53,9 @@ const PhysicalAttributesForm = () => {
         </div>
 
         <div className='justify-center mb-2'>
-          <ThemeProvider theme={theme}>
-            <form className='gap-y-2'>
+          <ThemeProvider theme={OuterTheme}>
+            {
+              <form className='gap-y-2'>
               <CustomSelect
                 value={selectedHeight}
                 onChange={handleHeightChange}
@@ -75,11 +77,12 @@ const PhysicalAttributesForm = () => {
               />
               <br/>
               <br/>
+              <div className='bottom-4 lg:bottom-8 text-center'>
+                <ButtonSquared text={'CREATE'}/>
+              </div>
             </form>
+            }
           </ThemeProvider>
-          <div className='bottom-4 lg:bottom-8 text-center'>
-            <ButtonSquared text={'CREATE'}/>
-          </div>
         </div>
       </div>
     </section>

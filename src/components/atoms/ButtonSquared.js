@@ -1,7 +1,7 @@
 import React from "react";
 
-function ButtonSquared({text}){
-    return <button className="btn-next btn-lg">{text}</button>
+function ButtonSquared({text,type}){
+    return <button type={type} className="btn-next btn-lg">{text}</button>
 }
 
 export default ButtonSquared;
