@@ -84,3 +84,41 @@
 }
 
 
+.toggle-button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adjust the gap between buttons */
+}
+
+.toggle-button {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.toggle-button.selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.balance{
+  font-family: 'Poppins',sans-serif;
+  color: #EEDE4F;
+  font-weight: 900;
+}
+
+.btcvalue{
+  font-family: 'Poppins',sans-serif;
+  color: #21A2DF;
+  font-weight: 900;
+}
+
+.dollarvalue{
+  font-family: 'Poppins',sans-serif;
+  color: #21A2DF;
+  font-weight: 900;
+}
+
+
+

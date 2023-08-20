@@ -6,23 +6,46 @@ import Header from './components/Header';
 import Banner from './components/Banner';
 import Nav from './components/Nav';
 import Services from './components/Services';
-import Work from './components/Work';
 import Contact from './components/Contact';
 import Decision from './components/Decision';
 import LeoneCharta from './components/LeoneCharta'
 import Guidelines from './components/Guidelines';
-
+import Payment from './components/Payment';
+import PersonalInfoService from './components/services/PersonalInfoService';
 
 function App() {
   const [loading, setLoading] = useState(false);
   const { isLoaded: authLoaded, userId, sessionId } = useAuth();
   const { isLoaded: userLoaded, isSignedIn, user } = useUser();
 
+  const [fetchedData, setFetchedData] = useState([]);
+  const [error, setError] = useState(null);
+
+  const fetchLeoneChartaData = () => {
+    const email = user.primaryEmailAddress.emailAddress;
+    PersonalInfoService.getLeoneChartaDataByEmail(email)
+      .then(response => {
+        if (response.status === 200) {
+          setFetchedData(response.data);
+          setError(null);
+          console.log(response.data);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        setError('Error fetching data.');
+      });
+  
+    };
+
+    
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
     }, 3000);
+   
   }, []);
 
   return (
@@ -50,8 +73,8 @@ function App() {
             <Guidelines/>
             <LeoneCharta/>
             <Services/>
-            <Work/>
-            <Contact/>
+            {/*<Payment/>
+            <Contact/>*/}
             <div className='h-[4000px]'></div>
             </div>
           )}

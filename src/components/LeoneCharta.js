@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // Import useState
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -28,12 +28,39 @@ import LongTextInput from './atoms/LongTextInput';
 import MedicalForm from './molecules/MedicalForm';
 import CustomSelect from '../components/atoms/CustomSelect'; // Adjust the import path
 import PhysicalAttributesForm from './molecules/PhysicalAttributesForm';
-
-
+import { UserProfile, useUser } from "@clerk/clerk-react";
+import PersonalInfoService from './services/PersonalInfoService';
 const theme = createCustomTheme();
 
 
 const LeoneCharta = () => {
+
+  const { isLoaded: userLoaded, isSignedIn, user, email } = useUser();
+  const [fetchedData, setFetchedData] = useState([]);
+  const [error, setError] = useState(null);
+
+  const fetchLeoneChartaData = () => {
+    const email = user.primaryEmailAddress.emailAddress;
+    PersonalInfoService.getLeoneChartaDataByEmail(email)
+      .then(response => {
+        if (response.status === 200) {
+          setFetchedData(response.data);
+          setError(null);
+          console.log(response.data);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        setError('Error fetching data.');
+      });
+  
+    };
+
+    useEffect(() => {
+      fetchLeoneChartaData();
+    }, []);
+
+
   return (
 
     <>
@@ -41,12 +68,12 @@ const LeoneCharta = () => {
       <PersonalInformationForm/>
       </section>
       
-      <section>
-        <MedicalForm/>
+      <section id='medical'>
+        <MedicalForm fetchedData={fetchedData}/>
       </section>
 
       <section>
-        <PhysicalAttributesForm/>
+        <PhysicalAttributesForm fetchedData={fetchedData}/>
       </section>
     </>
    

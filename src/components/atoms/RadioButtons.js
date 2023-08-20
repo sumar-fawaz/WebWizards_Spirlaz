@@ -26,7 +26,7 @@ const RadioButtons = ({name,value,onChange,onBlur}) => {
             color: 'primary',
           },
         }}
-        value="male"
+        value="Male"
         control={<Radio />}
         label="Male"
       />
@@ -39,7 +39,7 @@ const RadioButtons = ({name,value,onChange,onBlur}) => {
             color: 'primary',
           },
         }}
-        value="female"
+        value="Female"
         control={<Radio />}
         label="Female"
       />

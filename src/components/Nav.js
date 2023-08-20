@@ -23,12 +23,15 @@ const Nav = () => {
           <Link activeClass='active' smooth={true} spy={true} to='leonecharta' className='cursor-pointer w-[60px] h-[60px] flex items-center justify-center'>
               <FaUserLock/>
           </Link>
-          <Link activeClass='active' smooth={true} spy={true} to='work' className='cursor-pointer w-[60px] h-[60px] flex items-center justify-center'>
+          <Link activeClass='active' smooth={true} spy={true} to='services' className='cursor-pointer w-[60px] h-[60px] flex items-center justify-center'>
               <FaRocket/>
+          </Link>
+          {/*<Link activeClass='active' smooth={true} spy={true} to='payment' className='cursor-pointer w-[60px] h-[60px] flex items-center justify-center'>
+              <FaBitcoin/>
           </Link>
           <Link activeClass='active' smooth={true} spy={true} to='contact' className='cursor-pointer w-[60px] h-[60px] flex items-center justify-center'>
               <FaPassport/>
-          </Link>
+          </Link>*/}
         </div>
       </div>
     </nav>

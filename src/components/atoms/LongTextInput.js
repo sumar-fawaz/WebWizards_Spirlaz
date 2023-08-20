@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import { ThemeProvider } from '@emotion/react';
 import createCustomTheme from '../atoms/createCustomTheme';
 
-const LongTextInput = ({ placeholder, ...restProps }) => (
+const LongTextInput = ({ placeholder,value,name,onChange,onBlur}) => (
   <ThemeProvider theme={createCustomTheme}>
     <TextField
         multiline
@@ -25,7 +25,10 @@ const LongTextInput = ({ placeholder, ...restProps }) => (
             borderColor: 'secondary.main',
           },
         }}
-        {...restProps} // Spread any additional props
+        value={value}
+        name={name}
+        onChange={onChange}
+        onBlur={onBlur}
       />
   </ThemeProvider>
   

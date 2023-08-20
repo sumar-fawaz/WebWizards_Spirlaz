@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Handjet:wght@300&family=Poppins:ital@1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tektur:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,700&display=swap');
@@ -201,4 +202,43 @@
   align-items: center;
   width: auto;
   height: auto;
+}
+
+.front-text{
+  text-transform: uppercase;
+  color: #b936ee;
+  font-size: medium;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 700;
+}
+
+.rear-text{
+  
+  color: #3bace2;
+  font-size: medium;
+  font-family: 'Handjet';
+  font-weight: 600;
+  text-align: right;
+}
+
+.spacingbetweencomponents{
+  margin-bottom: 10px;
+}
+
+
+.vertical-line2 {
+  width: 5px;
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(to bottom, #FF56F6, #572AD7,#1F1BCC); /* Change these colors as needed */
+   /* Adjust the margin to control the spacing */
+}
+
+.view-toggle-button{
+  background-color: red;
+}
+
+.custom-toggle-button {
+  color: white; /* Change this to your desired font color */
 }
